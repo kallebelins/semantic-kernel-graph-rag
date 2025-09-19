@@ -183,6 +183,10 @@ Etapas e critérios detalhados em `docs/roadmap.md` (seções “Fase 1–4”) 
 
 ## Licença
 
-Defina a licença do projeto conforme sua necessidade (por exemplo, MIT). Inclua o arquivo `LICENSE` na raiz.
+Licença: Apache-2.0 com Commons Clause (no-sale). Consulte o arquivo `LICENSE` na raiz.
+
+Permissões: estudo, uso interno (inclusive corporativo), modificação e compartilhamento.
+
+Restrições: é proibido vender o software ou oferecê-lo como serviço pago cujo valor derive substancialmente de sua funcionalidade. O(s) autor(es) podem oferecer licenças comerciais separadas.
 
 
