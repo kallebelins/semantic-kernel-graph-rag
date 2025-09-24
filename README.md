@@ -1,192 +1,114 @@
 # Semantic Kernel Graph RAG
 
-Plataforma de RAG híbrido (Vector + GraphRAG + DRIFT) construída em .NET 8, integrada ao seu projeto de grafos `SemanticKernel.Graph`. Este repositório traz a API, orquestração e documentação de uso, enquanto a construção e consulta ao grafo são delegadas à biblioteca `SemanticKernel.Graph`.
+Plataforma de RAG híbrido para empresas, construída em .NET 8 e orquestrada com SKGraph, que combina Vector Search, GraphRAG (local e global) e DRIFT para entregar respostas confiáveis, citáveis e governáveis — com custo previsível e observabilidade de ponta a ponta.
 
-> Para fundamentos de arquitetura, dados e APIs, veja `docs/roadmap.md` e `docs/roadmap_tecnico.md`.
+## Visão Executiva
 
+Organizações acumulam conteúdos em múltiplos formatos, idiomas e sistemas. Este projeto conecta tudo isso em uma camada de conhecimento navegável por grafos, com consultas que alternam de forma inteligente entre buscas vetoriais, expansão local por entidades e visão global por comunidades — sempre com controles de segurança e trilhas de auditoria.
 
-## Visão geral
+O resultado é uma plataforma pronta para ambientes corporativos: confiável, explicável, segura e eficiente em custos.
 
-Este projeto habilita:
+## O que entregamos
 
-- Ingestão de documentos (upload/ZIP/GDrive/Git/HTTP) com detecção de idioma e normalização
-- Chunking semântico e baseado em headings, embeddings e índice BM25
-- Extração de entidades/relacionamentos/claims e montagem de grafo (via `SemanticKernel.Graph`)
-- Comunidades (Leiden) e geração de community reports
-- Modos de consulta: Vector RAG, Local GraphRAG, Global GraphRAG (QFS) e DRIFT híbrido
-- Guardrails (PII/LGPD), auditoria, traços e métricas
+- Respostas com citações precisas às evidências (página, seção, tempo em áudio/vídeo, bbox em imagens)
+- Panorama global por comunidades com drill-down para detalhes locais
+- Roteamento automático por intenção (Vector, Local GraphRAG, Global GraphRAG, DRIFT)
+- Governança (RBAC/ABAC), privacidade (PII) e direito ao esquecimento
+- Observabilidade completa (latência, custo, tokens, modelos) e métricas de qualidade
+- Operação multi-tenant, escalável e com orçamento por consulta
 
-Arquitetura de alto nível (resumo): API (.NET 8) → Serviços (Plugins SK) → Armazenamentos (Vector, BM25, Graph, SQL, Object Storage). Detalhes em `docs/roadmap.md`.
+## Capacidades Principais
 
+- Ingestão e Indexação
+  - Upload/ZIP/GDrive, normalização e fragmentação híbrida (heading-aware, semântica, janelas)
+  - Embeddings + BM25 com filtros por tags/setor/tema/idioma
 
-## Requisitos
+- Extração e Grafo de Conhecimento
+  - IE estruturada (entidades, relações, afirmações) com evidências por unidade de texto
+  - Fusão com aliases/chaves de bloqueio; resumos por entidade em múltiplos níveis
 
-- .NET SDK 8.0+
-- Docker (para stores locais)
-- Opcional, conforme modo:
-  - Vector Store: Qdrant (recomendado) ou pgvector/Weaviate
-  - Graph DB: Neo4j
-  - BM25: OpenSearch/Elasticsearch (opcional; BM25 pode ser desabilitado no MVP)
-  - SQL: Postgres/SQL Server para metadados
-  - Object Storage: MinIO/S3 (para artefatos)
+- Comunidades e Relatórios
+  - Detecção hierárquica (Leiden/Louvain) e relatórios executivos por comunidade (níveis)
+  - Representações para busca global focada em consulta (QFS)
 
+- Consulta e Roteamento por Intenção
+  - Vector RAG (BM25 ∪ ANN + re-rank)
+  - Local GraphRAG (expansão k-hop por entidades com citações)
+  - Global GraphRAG (QFS via relatórios de comunidade)
+  - DRIFT (global → local com reclassificação final)
+  - Parâmetros de custo e seleção dinâmica de contexto
 
-## Subindo dependências locais (Docker)
+- Segurança, Privacidade e Governança
+  - Classificação de sensibilidade (Público/Interno/Confidencial), redação/mascaramento de PII
+  - RBAC/ABAC por tenant/projeto/taxonomia e auditoria de consultas
 
-Compose mínimo (Vector + Graph). Salve como `docker-compose.yml` na raiz e rode `docker compose up -d`.
+- Observabilidade, Qualidade e A/B
+  - Traços por nó do grafo de execução (latência, custo, tokens, provider/model)
+  - Métricas de relevância, cobertura, fundamentação e diversidade; testes A/B por modo/intent
 
-```yaml
-services:
-  qdrant:
-    image: qdrant/qdrant:latest
-    ports:
-      - "6333:6333"
-      - "6334:6334"
-    volumes:
-      - qdrant_data:/qdrant/storage
+- Auto Few-Shots e Prompts
+  - Geração, curadoria e versionamento de exemplos por projeto/idioma
+  - Evolução contínua a partir de Q/A validados e seus traces
 
-  neo4j:
-    image: neo4j:5
-    environment:
-      - NEO4J_AUTH=neo4j/neo4j
-      - NEO4J_server_memory_pagecache_size=1G
-    ports:
-      - "7474:7474"
-      - "7687:7687"
-    volumes:
-      - neo4j_data:/data
+- Insights e BI
+  - Playbooks (riscos, tendências, FAQs, conformidade) e exportação para Data Lake/BI
 
-volumes:
-  qdrant_data:
-  neo4j_data:
-```
+- Diferenciais Multimodais e XAI
+  - Citações multimodais contextuais (áudio/vídeo, imagem, documento)
+  - Consultas cross-modais e trace XAI com subgrafo serializado
 
+Consulte detalhes técnicos e decisões de arquitetura em `docs/roadmap.md` e `docs/roadmap_tecnico.md`. Os cenários estão mapeados em `docs/usecases/index.md` e suas execuções em grafos em `docs/usegraphs/index.md`.
 
-## Configuração
+## Arquitetura em Alto Nível
 
-Crie um arquivo `.env` na raiz com as variáveis relevantes (exemplo):
-
-```dotenv
-# Ambiente
-ASPNETCORE_ENVIRONMENT=Development
-
-# LLM Providers (ajuste conforme seu provedor)
-OPENAI__API_KEY=
-AZURE_OPENAI__Endpoint=
-AZURE_OPENAI__ApiKey=
-AZURE_OPENAI__Deployment=
-
-# Vector Store (Qdrant)
-QDRANT__Url=http://localhost:6333
-
-# Graph (Neo4j)
-NEO4J__Uri=bolt://localhost:7687
-NEO4J__Username=neo4j
-NEO4J__Password=neo4j
-
-# BM25 (opcional)
-OPENSEARCH__Url=http://localhost:9200
-
-# SQL (opcional)
-POSTGRES__ConnectionString=Host=localhost;Port=5432;Database=skgraph;Username=postgres;Password=postgres
-
-# Object Storage (opcional)
-STORAGE__Endpoint=http://localhost:9000
-STORAGE__Bucket=skgraph
-STORAGE__AccessKey=
-STORAGE__SecretKey=
-
-# Auth (opcional)
-AUTH__Authority=http://localhost:8080/realms/your-realm
-AUTH__Audience=skgraph-api
-```
-
-Observação: O projeto usa a biblioteca `SemanticKernel.Graph` para operações de grafo. Mantenha-a disponível no seu ambiente de solução e siga os padrões de código e exemplos do seu repositório.
-
-
-## Executando localmente (Windows PowerShell)
-
-1) Suba as dependências:
-
-```powershell
-docker compose up -d
-```
-
-2) Restaure e execute o serviço/API (ajuste o caminho do projeto quando aplicável):
-
-```powershell
-dotnet restore
-dotnet build -c Debug
-dotnet run --project src/Service --no-launch-profile
-```
-
-Caso a solução use outro projeto de entrada, ajuste o caminho em `--project`.
-
-
-## API principal (resumo)
-
-Endpoints esperados (ver contratos detalhados em `docs/roadmap_tecnico.md`):
-
-- POST `/v1/projects` – cria projeto/tenant
-- POST `/v1/projects/{id}/sources` – registra origem
-- POST `/v1/projects/{id}/upload` – upload de arquivo/ZIP
-- POST `/v1/projects/{id}/sync` – sincroniza origem (gdrive/git/http)
-- GET  `/v1/jobs/{job_id}` – status da indexação
-- PUT  `/v1/projects/{id}/taxonomy` – configura taxonomia
-- PUT  `/v1/projects/{id}/rag-config` – modos, chunking, limites de custo
-- POST `/v1/query` – consulta (auto|vector|local_graph|global_graph|drift)
-- POST `/v1/insights/generate` – executa playbooks
-
-Exemplo de upload (ZIP):
-
-```http
-POST /v1/projects/abc/upload
-Content-Type: multipart/form-data
-file=@docs.zip
-?tags=LGPD,Jurídico&setor=Compliance&tema=Políticas
-```
-
-Exemplo de consulta:
-
-```json
-{
-  "project_id": "abc",
-  "question": "Quais diretrizes LGPD para RH?",
-  "mode": "auto",
-  "filters": {"tags": ["LGPD"], "setor": "RH", "tema": "Políticas", "lang": "pt-BR"},
-  "params": {"k": 12, "rerank": true, "max_tokens_ctx": 8000, "max_communities": 6}
-}
-```
-
-
-## Integração com SemanticKernel.Graph
-
-- Biblioteca: `https://www.nuget.org/packages/SemanticKernel.Graph`
-- Exemplos: `https://github.com/kallebelins/semantic-kernel-graph-docs/tree/main/examples`
-- Documentação: `https://skgraph.dev/`
-
-Siga estritamente as diretrizes e padrões da biblioteca ao implementar criação, consulta, travessia e modificação de grafos neste projeto.
-
+- Gateway de API (REST/JSON; opcional gRPC) com autenticação e autorização
+- Núcleo de Serviço: pipelines como grafos (SKGraph) com roteamento por intenção
+- Workers de Ingestão: execução assíncrona e incremental por fonte
+- Camada de Conhecimento: objetos, vetorial, BM25, grafo (Neo4j) e relacional
+- Observabilidade: logs estruturados, métricas e traços correlacionados por consulta/projeto/usuário
+- Console Administrativo: gestão de tenants, taxonomias, prompts, políticas e recursos
 
 ## Roadmap
 
-Etapas e critérios detalhados em `docs/roadmap.md` (seções “Fase 1–4”) e especificações técnicas em `docs/roadmap_tecnico.md`.
+- Fase 1 – MVP: ingestão, fragmentação, embeddings, BM25 e consulta vetorial, com taxonomias, autenticação e traços básicos
+- Fase 2 – Grafo e Local: IE + consolidação em grafo; consultas locais k-hop com citações
+- Fase 3 – Global e Híbrido: comunidades, relatórios por nível, busca global (QFS) e fluxo DRIFT
+- Fase 4 – Auto-Tuning e Insights: few-shots automáticos, playbooks e otimizações avançadas de custos/cache
 
+## Para quem é
 
-## Contribuição
+- Equipes de Dados/IA que precisam acelerar RAG corporativo, com governança
+- Times de Produto que buscam respostas citáveis e explicáveis para usuários finais
+- Áreas reguladas (Jurídico, Compliance, Saúde, Financeiro) que exigem auditabilidade
 
-1) Abra uma issue descrevendo a mudança proposta
-2) Siga o padrão de código da `SemanticKernel.Graph`
-3) Adicione testes e documentação
-4) Envie PR referenciando a issue
+## Como começar
 
+- Documentação e exemplos do SKGraph:
+  - NuGet: [SemanticKernel.Graph](https://www.nuget.org/packages/SemanticKernel.Graph)
+  - Documentação: [skgraph.dev](https://skgraph.dev/)
+  - Exemplos: [semantic-kernel-graph-docs/examples](https://github.com/kallebelins/semantic-kernel-graph-docs/tree/main/examples)
+
+- Documentos deste repositório:
+  - Roadmap: `docs/roadmap.md`
+  - Roadmap técnico: `docs/roadmap_tecnico.md`
+  - Usecases: `docs/usecases/index.md`
+  - GraphCases: `docs/usegraphs/index.md`
+
+## Comunidade e Contribuições
+
+Queremos construir isso em conjunto. Participe:
+
+- Abra issues com ideias, dúvidas, bugs ou propostas de melhoria
+- Sugira RFCs para funcionalidades relevantes ao ecossistema corporativo
+- Envie PRs focados, com descrição clara do problema, abordagem e impacto
+- Mantenha alinhamento com os padrões do `SemanticKernel.Graph` (arquitetura, nomenclatura, contratos)
+
+Se você ou sua organização desejam coevoluir módulos (conectores, storage, grafos sociais, XAI, BI), vamos conversar nas issues para coordenar o roadmap.
 
 ## Licença
 
-Licença: Apache-2.0 com Commons Clause (no-sale). Consulte o arquivo `LICENSE` na raiz.
+Licença: Apache-2.0 com Commons Clause (no-sale). Consulte `LICENSE`.
 
 Permissões: estudo, uso interno (inclusive corporativo), modificação e compartilhamento.
 
-Restrições: é proibido vender o software ou oferecê-lo como serviço pago cujo valor derive substancialmente de sua funcionalidade. O(s) autor(es) podem oferecer licenças comerciais separadas.
-
-
+Restrições: proibida a venda do software/serviço cujo valor derive substancialmente desta funcionalidade. Licenças comerciais podem ser oferecidas à parte.

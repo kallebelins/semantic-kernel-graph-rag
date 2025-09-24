@@ -2,6 +2,8 @@
 
 > Use o `_template.md` para detalhar cada usecase. Este índice mapeia as áreas do roadmap em arquivos de usecase a serem preenchidos.
 
+Veja também: [Índice de GraphCases (UC ↔ GC)](../usegraphs/index.md)
+
 ## Ingestão e Indexação
 - [Upload/ZIP/GDrive → Normalize/Chunk](./ingestao-e-indexacao/uc01_ingestao_indexacao_upload_normalize_chunk.md)
 - [Embeddings + BM25 (filtros por tags/setor/tema/lang)](./ingestao-e-indexacao/uc02_ingestao_indexacao_embeddings_bm25.md)
