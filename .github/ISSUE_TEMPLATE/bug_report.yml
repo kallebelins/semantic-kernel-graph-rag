@@ -1,0 +1,34 @@
+name: Bug report
+description: Reporte um problema
+labels: [bug]
+body:
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição
+      description: Explique claramente o problema.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduzir
+    attributes:
+      label: Passos para reproduzir
+      description: Inclua comandos, entradas e resultados esperados vs obtidos.
+    validations:
+      required: true
+  - type: input
+    id: versao
+    attributes:
+      label: Versão/commit
+  - type: textarea
+    id: ambiente
+    attributes:
+      label: Ambiente
+      description: SO, .NET, provedores, etc.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs/Traços
+      description: Cole trechos relevantes, escondendo dados sensíveis.
+
+

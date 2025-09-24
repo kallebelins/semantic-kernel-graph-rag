@@ -1,0 +1,33 @@
+name: ci-dotnet
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        if: ${{ hashFiles('**/*.csproj') != '' }}
+        run: dotnet restore
+
+      - name: Build
+        if: ${{ hashFiles('**/*.csproj') != '' }}
+        run: dotnet build --no-restore -c Release
+
+      - name: Test
+        if: ${{ hashFiles('**/*Tests.csproj') != '' }}
+        run: dotnet test --no-build -c Release --collect:"XPlat Code Coverage"
+
+

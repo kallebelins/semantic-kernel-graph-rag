@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: Semantic Kernel Graph RAG
+message: Se você usa este software, por favor cite-o conforme indicado.
+version: 0.1.0
+date-released: 2025-09-24
+authors:
+  - name: Project Contributors
+repository-code: https://github.com/kallebelins/semantic-kernel-graph-rag
+license: Apache-2.0
+keywords:
+  - RAG
+  - GraphRAG
+  - Semantic Kernel
+  - .NET
+  - Neo4j
+
