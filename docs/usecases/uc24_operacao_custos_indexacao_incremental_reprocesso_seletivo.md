@@ -1,4 +1,4 @@
-# Padrão de saída Usecase: Indexação Incremental e Reprocesso Seletivo
+# Indexação Incremental e Reprocesso Seletivo
 
 ## Contexto e Problema
 Novos conteúdos e alterações parciais exigem reprocessamento eficiente. Reexecutar todo o pipeline é caro e lento. É necessário detectar diffs por fonte e reprocessar seletivamente apenas unidades afetadas, preservando consistência entre índices, grafo e relatórios.

@@ -1,4 +1,4 @@
-# Usecase: Citações multimodais: `time_range`, `bbox`, `page/section/heading`
+# Citações multimodais: `time_range`, `bbox`, `page/section/heading`
 
 ## Contexto e Problema
 Respostas confiáveis exigem apontar exatamente onde a evidência está. Em ambientes corporativos e regulados, isto inclui trechos de documentos (página/seção/heading), regiões de imagem (bbox OCR) e segmentos de áudio/vídeo (time range e diarização do falante). Sem um modelo único de citação multimodal, torna-se difícil auditar, aplicar políticas (PII/sensibilidade) e reutilizar evidências em relatórios e traces.

@@ -1,4 +1,4 @@
-# Padrão de saída Usecase: Playbooks de Insights (riscos, tendências, FAQ, matriz de conformidade)
+# Playbooks de Insights (riscos, tendências, FAQ, matriz de conformidade)
 
 ## Contexto e Problema
 Organizações precisam transformar o grafo de conhecimento e os artefatos de RAG em inteligência acionável para executivos e squads (riscos e lacunas, tendências mês a mês, FAQs recorrentes e aderência a requisitos regulatórios). Esses resultados são repetitivos, exigem citações auditáveis e precisam ser reproduzíveis, versionados por projeto/idioma e com custos controlados.

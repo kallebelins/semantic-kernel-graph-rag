@@ -1,4 +1,4 @@
-# Padrão de saída Usecase: Auto Few-Shots (Geração, Curadoria e Versionamento por Projeto/Idioma)
+# Auto Few-Shots (Geração, Curadoria e Versionamento por Projeto/Idioma)
 
 ## Contexto e Problema
 Prompts dependem de bons exemplos. Criar e manter few-shots manualmente é caro e não escala. É necessário gerar, curar e versionar exemplos automaticamente por projeto/idioma/tarefa (extraction, classification, answering, summarization), usando dados validados e traços do sistema.

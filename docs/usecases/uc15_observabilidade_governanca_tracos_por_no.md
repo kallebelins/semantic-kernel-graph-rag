@@ -1,4 +1,4 @@
-# Usecase: Traços por nó (latência, custo, tokens, provider/model)
+# Traços por nó (latência, custo, tokens, provider/model)
 
 ## Contexto e Problema
 Sem observabilidade detalhada por etapa do pipeline (SKGraph), fica difícil diagnosticar gargalos, estimar custos e explicar respostas. Precisamos de traços por nó com métricas de latência, tokens e custo, correlacionados por `traceId/queryId/projectId`, e com identificação do `provider/model` usado em cada chamada.

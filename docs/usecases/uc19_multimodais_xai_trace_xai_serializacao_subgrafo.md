@@ -1,4 +1,4 @@
-# Usecase: Trace XAI: serialização de subgrafo/mermaid/Neo4j Bloom/GraphView
+# Trace XAI: serialização de subgrafo/mermaid/Neo4j Bloom/GraphView
 
 ## Contexto e Problema
 Ambientes regulados exigem explicabilidade: além da resposta, é preciso expor o caminho percorrido (modos, nós, escolhas, evidências) de forma auditável e visualizável. Sem um trace estruturado, é impossível reproduzir decisões, avaliar custos e justificar por que certas evidências foram usadas.

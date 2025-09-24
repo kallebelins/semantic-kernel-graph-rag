@@ -1,4 +1,4 @@
-# Usecase: Embeddings + BM25 (filtros por tags/setor/tema/lang)
+# Embeddings + BM25 (filtros por tags/setor/tema/lang)
 
 ## Contexto e Problema
 Após fragmentação, é necessário indexar para recuperação híbrida (lexical + vetorial).

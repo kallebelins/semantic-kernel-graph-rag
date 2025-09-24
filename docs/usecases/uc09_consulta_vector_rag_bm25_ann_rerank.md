@@ -1,4 +1,4 @@
-# Usecase: Vector RAG (BM25 ∪ ANN com re-rank)
+# Vector RAG (BM25 ∪ ANN com re-rank)
 
 ## Contexto e Problema
 Usuários fazem perguntas objetivas e específicas, com termos de vocabulário presentes nos conteúdos. É desejável baixa latência e custo, mantendo precisão e citações. A busca puramente lexical (BM25) pode falhar com sinônimos, enquanto a puramente vetorial (ANN) pode retornar trechos pouco ancorados lexicalmente ou irrelevantes em presença de termos raros. Precisamos combinar BM25 ∪ ANN e aplicar reclassificação (cross-encoder) para priorizar evidências mais relevantes.

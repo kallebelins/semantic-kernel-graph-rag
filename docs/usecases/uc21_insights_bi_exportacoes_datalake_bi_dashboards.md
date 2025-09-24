@@ -1,4 +1,4 @@
-# Padrão de saída Usecase: Exportações para Data Lake/BI e Dashboards
+# Exportações para Data Lake/BI e Dashboards
 
 ## Contexto e Problema
 Os resultados do RAG híbrido (entidades, relações, claims, comunidades, relatórios e insights) precisam alimentar data lakes e ferramentas de BI (PowerBI/Tableau/Elastic) para análise contínua, compliance e governança. É necessário padronizar formatos, versionar por projeto/idioma, controlar custos e respeitar políticas de segurança/privacidade.

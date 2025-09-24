@@ -1,4 +1,4 @@
-# Padrão de saída Usecase: Integração Social/Organizacional (Pessoas, Equipes, Projetos) e Relações com Conteúdos
+# Integração Social/Organizacional (Pessoas, Equipes, Projetos) e Relações com Conteúdos
 
 ## Contexto e Problema
 Perguntas organizacionais exigem contexto sobre pessoas, equipes e projetos: quem participou, aprovou, discutiu; quais conteúdos citam pessoas; qual o envolvimento por departamento. É necessário integrar uma camada social/organizacional ao grafo, mantendo governança e privacidade.

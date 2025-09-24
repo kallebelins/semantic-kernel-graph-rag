@@ -1,4 +1,4 @@
-# Usecase: RBAC/ABAC, redação/mascaramento de PII, direito ao esquecimento
+# RBAC/ABAC, redação/mascaramento de PII, direito ao esquecimento
 
 ## Contexto e Problema
 Ambientes corporativos exigem controle de acesso granular (RBAC/ABAC), proteção de PII e mecanismos de remoção seletiva (direito ao esquecimento). Em RAG híbrido, filtros e políticas devem ser aplicados desde a montagem de contexto até a resposta, preservando citações e auditabilidade.

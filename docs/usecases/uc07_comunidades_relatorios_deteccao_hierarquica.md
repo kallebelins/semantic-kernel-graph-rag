@@ -1,4 +1,4 @@
-# Usecase: Detecção hierárquica (Leiden/Louvain) por nível
+# Detecção hierárquica (Leiden/Louvain) por nível
 
 ## Contexto e Problema
 A plataforma consolida um grafo de conhecimento por projeto (entidades, relações e claims). Para habilitar visão global, navegação macro e sumarização bottom-up, é necessário particionar o grafo em comunidades hierárquicas (níveis 0..n). O desafio é detectar módulos de forma eficiente, estável e idempotente, suportando diferentes tamanhos de grafo e restrições de orçamento.

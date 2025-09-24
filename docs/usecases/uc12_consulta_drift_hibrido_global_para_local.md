@@ -1,4 +1,4 @@
-# Usecase: DRIFT (global → local com reclassificação)
+# DRIFT (global → local com reclassificação)
 
 ## Contexto e Problema
 Perguntas longas/ambíguas ou que pedem visão geral com detalhes pontuais exigem combinação de global e local. Só QFS pode ficar genérico; só Local pode perder cobertura. Precisamos de um fluxo híbrido: filtra globalmente, gera subperguntas locais e reclassifica o conjunto final.

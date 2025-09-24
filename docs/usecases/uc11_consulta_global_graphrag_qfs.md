@@ -1,4 +1,4 @@
-# Usecase: Global GraphRAG (QFS por comunidades)
+# Global GraphRAG (QFS por comunidades)
 
 ## Contexto e Problema
 Perguntas de panorama, visão geral, tendências ou “mapa do tema” exigem navegar conhecimento agregado. Percorrer documentos ou subgrafos locais é ineficiente e caro. Precisamos de uma busca global focada em consulta (QFS) baseada em comunidades hierárquicas e seus relatórios, com navegação bottom-up.

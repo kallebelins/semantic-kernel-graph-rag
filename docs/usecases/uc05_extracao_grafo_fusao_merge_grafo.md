@@ -1,4 +1,4 @@
-# Usecase: Fusão/Merge no grafo (aliases, chaves de bloqueio, evidências)
+# Fusão/Merge no grafo (aliases, chaves de bloqueio, evidências)
 
 ## Contexto e Problema
 Após a IE gerar `{entities[], relations[], claims[]}` por `TextUnit`, é necessário consolidar um grafo de conhecimento único por projeto. Sem merge controlado, o grafo sofre com duplicatas, arestas redundantes e perda de confiabilidade. É crítico preservar citações (`unit_id`) como evidências e operar de forma incremental e idempotente.

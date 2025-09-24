@@ -1,4 +1,4 @@
-# Padrão de saída Usecase: Orçamento por Consulta e Seleção Dinâmica de Contexto
+# Orçamento por Consulta e Seleção Dinâmica de Contexto
 
 ## Contexto e Problema
 Custos e latência variam com o tamanho de contexto, profundidade de busca e quantidade de passos no DAG. É preciso impor orçamento por consulta e abrir contexto de forma incremental apenas quando o ganho esperado justifica, evitando desperdício em perguntas simples e mantendo qualidade em perguntas complexas.

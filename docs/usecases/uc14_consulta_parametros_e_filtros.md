@@ -1,4 +1,4 @@
-# Usecase: Parâmetros e filtros `{k, rerank, max_tokens_ctx, max_communities, beam_width, depth}`
+# Parâmetros e filtros `{k, rerank, max_tokens_ctx, max_communities, beam_width, depth}`
 
 ## Contexto e Problema
 Os modos de consulta precisam operar sob limites de custo/latência e respeitar políticas e recortes de contexto (tags, setor, tema, idioma). Sem padronização de parâmetros, o comportamento fica imprevisível e caro.

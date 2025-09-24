@@ -1,4 +1,4 @@
-# Usecase: Community Reports e embeddings para QFS
+# Community Reports e embeddings para QFS
 
 ## Contexto e Problema
 Após detectar comunidades hierárquicas, precisamos sintetizar conhecimento por comunidade em relatórios consistentes, com citações e estrutura padrão. Esses relatórios devem ser pesquisáveis globalmente via embeddings (QFS) e servir de base para panoramas e navegação macro.

@@ -1,4 +1,4 @@
-# Usecase: IE estruturada (entities, relations, claims) citando `unit_id`
+# IE estruturada (entities, relations, claims) citando `unit_id`
 
 ## Contexto e Problema
 Após a fragmentação, é necessário extrair estruturas de conhecimento de forma padronizada e citável. A IE deve produzir entidades, relações e afirmações com referência explícita às unidades de evidência (`unit_id`) para permitir transparência, auditoria e consolidação no grafo do projeto.

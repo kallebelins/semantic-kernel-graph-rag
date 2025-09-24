@@ -1,4 +1,4 @@
-# Usecase: Local GraphRAG (expansão por entidades)
+# Local GraphRAG (expansão por entidades)
 
 ## Contexto e Problema
 Perguntas que envolvem entidades específicas (pessoas, sistemas, normas, processos) e relações diretas entre elas se beneficiam de uma busca no grafo com expansão limitada (k-hop). O Vector RAG pode não capturar estrutura relacional, e o Global QFS é excessivo. Precisamos navegar o subgrafo do projeto para reunir evidências estruturadas e citáveis.

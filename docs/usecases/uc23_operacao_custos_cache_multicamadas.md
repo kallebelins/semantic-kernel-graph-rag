@@ -1,4 +1,4 @@
-# Padrão de saída Usecase: Cache Multicamadas
+# Cache Multicamadas
 
 ## Contexto e Problema
 Consultas e artefatos recorrentes (respostas, relatórios de comunidade, features de re-rank, subgrafos) geram custos repetidos. É necessário um cache multicamadas, seguro e ciente de políticas, com chaves determinísticas e invalidação seletiva para reduzir latência e custo.

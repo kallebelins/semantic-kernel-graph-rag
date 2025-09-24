@@ -1,4 +1,4 @@
-# Usecase: Roteamento por intenção (heurísticas e/ou classificadores)
+# Roteamento por intenção (heurísticas e/ou classificadores)
 
 ## Contexto e Problema
 Escolher o modo de consulta correto (Vector, Local, Global, DRIFT) impacta diretamente custo, latência e qualidade. Sem roteamento, o sistema pode usar estratégias subótimas. Precisamos detectar intenção e aplicar regras/classificadores para direcionar a pergunta.

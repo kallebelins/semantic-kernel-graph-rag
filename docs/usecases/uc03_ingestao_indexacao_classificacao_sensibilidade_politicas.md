@@ -1,4 +1,4 @@
-# Usecase: Classificação de sensibilidade e políticas de privacidade
+# Classificação de sensibilidade e políticas de privacidade
 
 ## Contexto e Problema
 Necessário rotular trechos como Público/Interno/Confidencial e aplicar políticas de exibição e indexação.

@@ -1,4 +1,4 @@
-# Usecase: Consulta local k-hop com evidências citadas
+# Consulta local k-hop com evidências citadas
 
 ## Contexto e Problema
 Quando a pergunta do usuário envolve fatos específicos sobre entidades (pessoas, organizações, sistemas, normas) e relações diretas entre elas, a melhor estratégia é uma expansão local no grafo em poucos saltos (k-hop). Precisamos coletar evidências ancoradas em `TextUnit` próximos às entidades e relações relevantes e sintetizar uma resposta curta com citações verificáveis.

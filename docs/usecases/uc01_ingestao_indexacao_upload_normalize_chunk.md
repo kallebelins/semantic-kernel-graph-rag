@@ -1,4 +1,4 @@
-# Usecase: Upload/ZIP/GDrive → Normalize/Chunk (heading-aware, semantic split, rolling window)
+# Upload/ZIP/GDrive → Normalize/Chunk (heading-aware, semantic split, rolling window)
 
 ## Contexto e Problema
 Projetos precisam ingerir documentos heterogêneos e produzir unidades de texto coerentes para indexação e IE.

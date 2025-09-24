@@ -1,4 +1,4 @@
-# Usecase: Consultas cross-modais e ordenação unificada
+# Consultas cross-modais e ordenação unificada
 
 ## Contexto e Problema
 Usuários fazem perguntas que combinam evidências em texto, imagens e gravações. Executar três buscas separadas sem uma ordenação unificada causa respostas desalinhadas, com vieses por modalidade e baixa coerência. Precisamos de um fluxo cross-modal com roteamento explícito, recuperação paralela por modalidade e reclassificação unificada para compor uma única resposta fundamentada.
