@@ -52,3 +52,4 @@ Classificar sensibilidade por `TextUnit` e aplicar redação/mascaramento confor
 
 ## Variantes e Extensões
 - Re-treinamento de classificadores por setor/idioma
+

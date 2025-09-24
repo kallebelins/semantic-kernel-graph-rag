@@ -52,3 +52,4 @@ Gerar embeddings e indexar postings BM25 com metadados facetados para filtros r�
 
 ## Variantes e Extensões
 - Indexação de `CommunityReport` em coleções próprias
+

@@ -55,3 +55,4 @@ Normalizar conteúdos e fragmentar em `TextUnit` preservando estrutura (títulos
 ## Variantes e Extensões
 - Sincronização GDrive/HTTP
 - Suporte multimídia (áudio/imagem) na normalização
+
